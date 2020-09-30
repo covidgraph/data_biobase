@@ -1,6 +1,7 @@
 import os
 import py2neo
 import logging
+import json
 
 logging.basicConfig(level=logging.INFO)
 logging.getLogger('biomedgraph').setLevel(level=logging.DEBUG)
@@ -16,6 +17,9 @@ GC_NEO4J_URL = os.getenv('GC_NEO4J_URL', 'bolt://localhost:7687')
 GC_NEO4J_USER = os.getenv('GC_NEO4J_USER', 'neo4j')
 GC_NEO4J_PASSWORD = os.getenv('GC_NEO4J_PASSWORD', 'test')
 RUN_MODE = os.getenv('RUN_MODE', 'prod')
+
+NEO4J_CONFIG_STRING = os.getenv("NEO4J")
+NEO4J_CONFIG_DICT = json.loads(NEO4J_CONFIG_STRING)
 
 
 def run_parser(parser):
@@ -78,7 +82,7 @@ if __name__ == '__main__':
         log.info("Run tests")
 
     else:
-        graph = py2neo.Graph(GC_NEO4J_URL, user=GC_NEO4J_USER, password=GC_NEO4J_PASSWORD, secure=True, verify=False)
+        graph = py2neo.Graph(host=NEO4J_CONFIG_DICT['host'], user=NEO4J_CONFIG_DICT['user'], password=NEO4J_CONFIG_DICT['password'], secure=NEO4J_CONFIG_DICT['secure'], verify=False)
 
         # Download Datasources
         # ====================
