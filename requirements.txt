@@ -1,0 +1,5 @@
+graphio
+py2neo>=2020.0.0
+-e git+https://github.com/kaiserpreusse/datacroaker@315810ff927e658a6767b94dd73fb0c58cd207bc#egg=datacroaker
+-e git+https://github.com/kaiserpreusse/elderberry@ab67aa1ad27757c530634d29dc911357ee59182b#egg=elderberry
+-e git+https://github.com/mpreusse/biomedgraph@cbd7cd9a63e5f9ef1e6681d4f380f1ae8be3fb0c#egg=biomedgraph
