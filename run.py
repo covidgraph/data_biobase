@@ -13,9 +13,6 @@ from biomedgraph.parser import *
 log = logging.getLogger(__name__)
 
 ROOT_DIR = os.getenv('ROOT_DIR', '/download')
-GC_NEO4J_URL = os.getenv('GC_NEO4J_URL', 'bolt://localhost:7687')
-GC_NEO4J_USER = os.getenv('GC_NEO4J_USER', 'neo4j')
-GC_NEO4J_PASSWORD = os.getenv('GC_NEO4J_PASSWORD', 'test')
 RUN_MODE = os.getenv('RUN_MODE', 'prod')
 
 NEO4J_CONFIG_STRING = os.getenv("NEO4J")
