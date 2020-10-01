@@ -16,18 +16,19 @@ ROOT_DIR = os.getenv('ROOT_DIR', '/download')
 RUN_MODE = os.getenv('RUN_MODE', 'prod')
 
 NEO4J_CONFIG_STRING = os.getenv("NEO4J")
-log.info(NEO4J_CONFIG_STRING)
 
 try:
+    log.info(NEO4J_CONFIG_STRING)
     NEO4J_CONFIG_DICT = json.loads(NEO4J_CONFIG_STRING)
 except json.decoder.JSONDecodeError:
-
+    # try to replace single quotes with double quotes
+    # JSON always expects double quotes, common mistake when writing JSON strings
     NEO4J_CONFIG_STRING = NEO4J_CONFIG_STRING.replace("'", '"')
     log.info(NEO4J_CONFIG_STRING)
     NEO4J_CONFIG_DICT = json.loads(NEO4J_CONFIG_STRING)
 
 log.info(f'dict {NEO4J_CONFIG_DICT}')
-log.info(type(NEO4J_CONFIG_DICT))
+
 
 def run_parser(parser):
     """
