@@ -5,6 +5,7 @@ services:
     build: .
     environment:
       - RUN_MODE=${RUN_MODE}
+      - NEO4J=${NEO4J}
     volumes:
       - type: bind
         source: ${DOWNLOAD_PATH}
