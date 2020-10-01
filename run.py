@@ -26,7 +26,8 @@ except json.decoder.JSONDecodeError:
     log.info(NEO4J_CONFIG_STRING)
     NEO4J_CONFIG_DICT = json.loads(NEO4J_CONFIG_STRING)
 
-log.info(NEO4J_CONFIG_DICT)
+log.info(f'dict {NEO4J_CONFIG_DICT}')
+log.info(type(NEO4J_CONFIG_DICT))
 
 def run_parser(parser):
     """
